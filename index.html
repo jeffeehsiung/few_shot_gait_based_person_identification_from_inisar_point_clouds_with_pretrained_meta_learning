@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EUSIPCO 2026 – Supplementary Materials</title>
+    <style>
+        /* ============================================================
+           RADAR NIGHT PALETTE (matches poster-v2.tex)
+           ============================================================ */
+        :root {
+            --radar-navy:    #1A2332;
+            --radar-purple:  #6B4E9E;
+            --radar-orange:  #E8734A;
+            --radar-blue:    #3B7A9E;
+            --radar-green:   #4A9B6E;
+            --radar-bg:      #FAFAF8;
+            --radar-grey:    #5A6472;
+            --radar-blue-light: #BFD8E5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--radar-bg);
+            color: var(--radar-navy);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(26, 35, 50, 0.10);
+            padding: 40px 45px 35px;
+        }
+
+        /* ---- HEADER ---- */
+        .header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 4px solid var(--radar-blue);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--radar-navy);
+            letter-spacing: -0.3px;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: var(--radar-grey);
+            margin-top: 6px;
+        }
+
+        .header .authors {
+            font-size: 15px;
+            color: var(--radar-blue);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .header .institute {
+            font-size: 13px;
+            color: var(--radar-grey);
+            margin-top: 2px;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: var(--radar-blue);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: 20px;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---- SECTION TITLES ---- */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--radar-navy);
+            border-left: 5px solid var(--radar-blue);
+            padding-left: 14px;
+            margin: 32px 0 16px 0;
+        }
+
+        .section-title.orange {
+            border-left-color: var(--radar-orange);
+        }
+
+        .section-title.green {
+            border-left-color: var(--radar-green);
+        }
+
+        .section-desc {
+            color: var(--radar-grey);
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        /* ---- VIDEO GRID ---- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 10px 0 6px;
+        }
+
+        @media (max-width: 700px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-card {
+            background: var(--radar-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e8ecf0;
+            transition: box-shadow 0.2s;
+        }
+
+        .video-card:hover {
+            box-shadow: 0 4px 14px rgba(26, 35, 50, 0.08);
+        }
+
+        .video-card video {
+            display: block;
+            width: 100%;
+            background: #1a1a1a;
+        }
+
+        .video-card .label {
+            padding: 10px 14px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--radar-navy);
+            background: white;
+        }
+
+        .video-card .label .tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 1px 10px;
+            border-radius: 12px;
+            margin-right: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .tag.before {
+            background: var(--radar-orange);
+            color: white;
+        }
+
+        .tag.after {
+            background: var(--radar-green);
+            color: white;
+        }
+
+        .tag.insar {
+            background: var(--radar-blue);
+            color: white;
+        }
+
+        .video-card .label .caption {
+            font-weight: 400;
+            color: var(--radar-grey);
+            font-size: 13px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* ---- GIF ROW ---- */
+        .gif-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 10px 0 6px;
+        }
+
+        @media (max-width: 700px) {
+            .gif-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gif-card {
+            background: var(--radar-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e8ecf0;
+            text-align: center;
+        }
+
+        .gif-card img {
+            display: block;
+            width: 100%;
+            background: #1a1a1a;
+        }
+
+        .gif-card .label {
+            padding: 8px 14px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--radar-navy);
+            background: white;
+        }
+
+        .gif-card .label .caption {
+            font-weight: 400;
+            color: var(--radar-grey);
+            font-size: 13px;
+            display: block;
+            margin-top: 1px;
+        }
+
+        /* ---- DOWNLOAD SECTION ---- */
+        .download-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 8px 0 4px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(26, 35, 50, 0.12);
+        }
+
+        .download-btn.primary {
+            background: var(--radar-blue);
+            color: white;
+        }
+
+        .download-btn.primary:hover {
+            background: #2f6584;
+        }
+
+        .download-btn.secondary {
+            background: var(--radar-orange);
+            color: white;
+        }
+
+        .download-btn.secondary:hover {
+            background: #d15f3a;
+        }
+
+        .download-btn.outline {
+            background: transparent;
+            color: var(--radar-navy);
+            border: 2px solid var(--radar-blue);
+        }
+
+        .download-btn.outline:hover {
+            background: var(--radar-blue-light);
+        }
+
+        .download-btn .icon {
+            font-size: 18px;
+        }
+
+        /* ---- QR CODE FOOTER ---- */
+        .footer {
+            margin-top: 40px;
+            padding-top: 22px;
+            border-top: 2px solid #e8ecf0;
+            text-align: center;
+            color: var(--radar-grey);
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: var(--radar-blue);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .qrcode-hint {
+            display: inline-block;
+            background: var(--radar-bg);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--radar-grey);
+            margin-top: 6px;
+        }
+
+        /* ---- RESPONSIVE TWEAKS ---- */
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px 16px;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <div class="header">
+        <h1>Few-Shot Radar Person Identification</h1>
+        <div class="subtitle">via Tracking-Integrated InISAR and Pre-Trained Meta-Learning</div>
+        <div class="authors">Jeffee Hsiung&thinsp;* &middot; Rengin Torun&thinsp;* &middot; S.&nbsp;Hamed Javadi&dagger; &middot; Hichem Sahli&dagger;</div>
+        <div class="institute">*KU Leuven &nbsp;|&nbsp; &dagger;imec &nbsp;|&nbsp; Vrije Universiteit Brussel</div>
+        <span class="badge">EUSIPCO 2026 &bull; Bruges</span>
+    </div>
+
+    <!-- ============================================================
+         VIDEOS: EKF-JPDA TRACKING COMPARISON
+         ============================================================ -->
+    <div class="section-title">📹 Tracking Comparison &mdash; DBSCAN vs EKF-JPDA</div>
+    <p class="section-desc">Before / after multipath ghost removal &mdash; EKF-JPDA tracking in 3D spatial domain rejects ghost targets.</p>
+
+    <div class="video-grid">
+        <div class="video-card">
+            <video controls preload="metadata">
+                <source src="assets/prior_ekf_jpda_radar_vs_camera_p3.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="label">
+                <span class="tag before">BEFORE</span> DBSCAN only
+                <span class="caption">Ghost targets remain &bull; clusters include multipath reflections</span>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <video controls preload="metadata">
+                <source src="assets/post_ekf_jpda_radar_vs_camera_p5.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="label">
+                <span class="tag after">AFTER</span> EKF-JPDA filtered
+                <span class="caption">Clean target tracking &bull; ghosts rejected via JPDA association</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         GIFs: PREPROCESSING
+         ============================================================ -->
+    <div class="section-title green">⚙️ Preprocessing Pipeline</div>
+    <p class="section-desc">Raw point clouds &rarr; DBSCAN &rarr; near-field filter &rarr; centroid normalization &rarr; random padding.</p>
+
+    <div class="gif-row">
+        <div class="gif-card">
+            <img src="assets/prior_preprocessing.gif" alt="Before preprocessing" />
+            <div class="label">
+                <span class="tag before">BEFORE</span> Raw point cloud
+                <span class="caption">Sparse, noisy, contaminated by multipath ghosts</span>
+            </div>
+        </div>
+
+        <div class="gif-card">
+            <img src="assets/post_preprocessing.gif" alt="After preprocessing" />
+            <div class="label">
+                <span class="tag after">AFTER</span> Preprocessed point cloud
+                <span class="caption">Centroid-normalized &bull; padded to <var>n</var><sub>max</sub> = 1000 &bull; <var>S</var> = {<var>P</var><sub>t</sub>}<sub>t=1</sub><sup>10</sup></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         DOWNLOAD: PAPER (PDF)
+         ============================================================ -->
+    <div class="section-title orange">📄 Download the Paper</div>
+    <p class="section-desc">Full manuscript with all experimental details, equations, and results.</p>
+
+    <div class="download-grid">
+        <a href="EUSIPCO__Few_Shot_Gait_Based_Person_Identification_from_In_ISAR_Point_Clouds_with_Pre_Trained_Meta_Learning.pdf"
+           class="download-btn primary"
+           download>
+            <span class="icon">📥</span> Download PDF
+        </a>
+        <a href="poster-v2.pdf"
+           class="download-btn secondary"
+           download>
+            <span class="icon">🖼️</span> Download Poster PDF
+        </a>
+    </div>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <div class="footer">
+        <span>jeffee.hsiung@icloud.com</span> &middot;
+        <span>torun10@imec.be</span> &middot;
+        <span>EUSIPCO 2026, Bruges</span> &middot;
+        <span>imec / KU Leuven / VUB</span>
+        <div class="qrcode-hint">📱 Scan the QR code on the poster to return here</div>
+    </div>
+
+</div><!-- .container -->
+
+</body>
+</html>
