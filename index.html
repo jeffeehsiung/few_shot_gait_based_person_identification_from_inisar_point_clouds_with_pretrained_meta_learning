@@ -106,6 +106,10 @@
             border-left-color: var(--radar-green);
         }
 
+        .section-title.purple {
+            border-left-color: var(--radar-purple);
+        }
+
         .section-desc {
             color: var(--radar-grey);
             font-size: 14px;
@@ -275,6 +279,15 @@
             background: #d15f3a;
         }
 
+        .download-btn.purple {
+            background: var(--radar-purple);
+            color: white;
+        }
+
+        .download-btn.purple:hover {
+            background: #5a3f85;
+        }
+
         .download-btn.outline {
             background: transparent;
             color: var(--radar-navy);
@@ -403,21 +416,26 @@
     </div>
 
     <!-- ============================================================
-         DOWNLOAD: PAPER (PDF)
+         DOWNLOAD: PAPER, POSTER, REFERENCES
          ============================================================ -->
-    <div class="section-title orange">📄 Download the Paper</div>
-    <p class="section-desc">Full manuscript with all experimental details, equations, and results.</p>
+    <div class="section-title purple">📄 Download Materials</div>
+    <p class="section-desc">Full paper, poster, and reference list in PDF format.</p>
 
     <div class="download-grid">
         <a href="EUSIPCO__Few_Shot_Gait_Based_Person_Identification_from_In_ISAR_Point_Clouds_with_Pre_Trained_Meta_Learning.pdf"
            class="download-btn primary"
            download>
-            <span class="icon">📥</span> Download PDF
+            <span class="icon">📄</span> Full Paper
         </a>
         <a href="poster-v2.pdf"
            class="download-btn secondary"
            download>
-            <span class="icon">🖼️</span> Download Poster PDF
+            <span class="icon">🖼️</span> Poster
+        </a>
+        <a href="references.pdf"
+           class="download-btn purple"
+           download>
+            <span class="icon">📚</span> Poster References
         </a>
     </div>
 
